@@ -1,8 +1,3 @@
-# Publishes docker image, pinning actions to a commit SHA,
-# and updating most recently built image with the latest tag.
-# Can be triggered by either pushing a commit that changes the `Dockerfile`,
-# or manually dispatching the workflow.
-
 name: Publish Docker image
 
 on:
@@ -31,7 +26,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: YOUR_DOCKERHUB_USERNAME/dsci522-dockerfile-practice
+          images: edenness/dsci522-dockerfile-practice
           tags: |
             type=raw, value={{sha}},enable=${{github.ref_type != 'tag' }}
             type=raw, value=latest
